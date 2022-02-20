@@ -5,13 +5,16 @@ interface Props {
   toggle:ToggleTodo
 }
 function TodoList({todos, toggle}: Props) {
+ 
   return (
-      <ul className="todo-list">
-        <h1>TODO-LIST</h1>
-        {todos.map(todo => (
-          <TodoItem todo={todo} toggle={toggle} />
-        ))}
-      </ul>
+    <ul>
+      { todos.map((todo) => {
+        console.log(todo)
+        //bunu yapmamın sebebi state boş dizi olarak atasamda default olarak bir todo id generate ediyor ve dizi aslında boş olmuyor 
+        //bu sorunu çözebilirsin
+       return todo.text === "" ? (<h2>Please Add Todos Here</h2>) : (<TodoItem todo={todo} toggle={toggle} />)
+      })}
+    </ul>
   )
 }
 export default TodoList;
