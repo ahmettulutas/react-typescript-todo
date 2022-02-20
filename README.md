@@ -1,7 +1,7 @@
 # SIMPLE (TO-DO APP) WITH TYPESCRIPT AND REACT
 This is a simple To-do app I created for complete **TypeScript** beginners.
 ## HOMEWORK FOR YOU :neckbeard:
-When you understand this code, fork it and try to add deleting the task feature to this application. Don't forget to use Typescript 
+When you understand this code, fork it and **try to add deleting the task feature to this application**. Don't forget to use Typescript 
 ## LET'S BEGIN
 To create a react app with typescript in your command line type following;
 ```
