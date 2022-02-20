@@ -6,3 +6,4 @@ interface Todo {
 
 type ToggleTodo = (id:number) => void; 
 type AddTodo = (input:string) => void;
+type DeleteTodos = () => void;
