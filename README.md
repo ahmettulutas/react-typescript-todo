@@ -42,7 +42,7 @@ export default TodoItem;
 
 ```
 
-Bonus: I have an interesting tip for typescript beginners :bowtie:
+**Bonus: I have an interesting tip for typescript beginners :bowtie:**
 # Creating a Type Declaration File
 While we could keep Todo declared in this file, we need to use it throughout the app. In order to use Todo type interface let's create a type declaration file. Let’s call this "types.d.ts" and put it in our src folder. What’s nice about this types.d.ts file is our compiler will recognize the types in there as global to the project and we won’t need to import or export them.
 
