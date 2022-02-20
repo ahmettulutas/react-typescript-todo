@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# SIMPLE (TO-DO APP) WITH TYPESCRIPT AND REACT
+This is a simple To-do app I created for complete **TypeScript** beginners.
+## HOMEWORK FOR YOU :neckbeard:
+When you understand this code, fork it and try to add deleting the task feature to this application. Don't forget to use Typescript 
+## LET'S BEGIN
+To create a react app with typescript in your command line type following;
+```
+npx create-react-app my-app --template typescript
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We have three different components.
 
-## Available Scripts
+1. Form
+2. TodoList
+3. TodoItem
 
-In the project directory, you can run:
+Here is a sample component, TodoItem. This is where we'll start typescripting.
 
-### `npm start`
+**Try to understand the logic for this Functional Component. 
+If you do so, all other two components have the same logic while typescripting their props.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+// You can declare your types here. This is the first option.
+interface Todo {
+    text:string,
+    complete:boolean,
+    id:number
+}
+interface Props {
+    todo:Todo,
+    toggle:ToggleTodo
+}
+const TodoItem = ({todo, toggle}: Props) => {
+  return (
+        <div className="todo-item" style={{textDecoration: todo.complete ? "line-through": undefined}}>
+            <input onClick={() => {toggle(todo.id)}} type="checkbox" checked={todo.complete} /> {todo.text}
+        </div>   
+  )
+}
+export default TodoItem;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Bonus: I have an interesting tip for typescript beginners :bowtie:
+# Creating a Type Declaration File
+While we could keep Todo declared in this file, we need to use it throughout the app. In order to use Todo type interface let's create a type declaration file. Let’s call this "types.d.ts" and put it in our src folder. What’s nice about this types.d.ts file is our compiler will recognize the types in there as global to the project and we won’t need to import or export them.
 
-### `npm run build`
+### types.d.ts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+interface Todo {
+    text:string,
+    complete:boolean,
+    id:number
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### adding handleToggle or other functions into types.d.ts
+```
+interface Todo {
+    text:string,
+    complete:boolean,
+    id:number
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+type ToggleTodo = (id:number) => void; 
+type AddTodo = (input:string) => void;
+```
