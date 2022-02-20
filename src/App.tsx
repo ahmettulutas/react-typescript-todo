@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Form from "./components/form";
 import TodoList from "./components/todoList";
+import "./styles.css";
 
 const initialTodos: Todo[] = [
   {text: 'Learn about React', complete: false, id:42},

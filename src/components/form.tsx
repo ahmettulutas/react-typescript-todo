@@ -11,8 +11,9 @@ export default function Form({addTodo}: Props) {
         setInput("");
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input onChange={(e) => {setInput((prev) => e.target.value)}} type="text" value={input}></input>
+        <form className="form" onSubmit={handleSubmit}>
+            <h1>TODO-FORM</h1>
+            <input placeholder="type here.." required onChange={(e) => {setInput((prev) => e.target.value)}} type="text" value={input}></input>
             <button type="submit">Add Todo</button>
         </form>
     )

@@ -6,11 +6,12 @@ interface Props {
 }
 function TodoList({todos, toggle}: Props) {
   return (
-    <ul>
-      {todos.map(todo => (
-        <TodoItem todo={todo} toggle={toggle} />
-      ))}
-    </ul>
+      <ul className="todo-list">
+        <h1>TODO-LIST</h1>
+        {todos.map(todo => (
+          <TodoItem todo={todo} toggle={toggle} />
+        ))}
+      </ul>
   )
 }
 export default TodoList;
