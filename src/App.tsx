@@ -8,8 +8,7 @@ const initialTodos: Todo[] = [
   {text: 'Meet friend for lunch', complete: true, id:43},
 ]
 function App() {
-  const [todos, setTodos] = useState(initialTodos);
-  // idyi Todo yap bakalım ne olacak?
+  const [todos, setTodos] = useState<Todo[]>(initialTodos);
   const handleToggle:ToggleTodo = (id:number) => {
     const newTodos:Todo[] = todos.map(todo => {
         if(todo.id === id) {
